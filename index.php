@@ -13,32 +13,34 @@
     <div class="row">
         <div class="col-md">
             <!-- navbar -->
-            <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-                <div class="container-fluid">
-                    <div class="logo">
-                        <a class=" navbar-brand fs-3 text-light" href="#">PerpusPPKD</a>
-                        <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
+            <div class="menu border-bottom border-black">
+                <nav class="navbar navbar-expand-lg shadow-lg navbar-light">
+                    <div class="container-fluid">
+                        <div class="logo">
+                            <a class=" navbar-brand fs-3 text-dark" href="#">PerpusPPKD</a>
+                            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                        </div>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link active text-dark" aria-current="page"
+                                        href="views/dashboard.php">Dashboard</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="views/manage-account.php">Manage Account</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active text-dark" href="views/manage-books.php">Manage Books</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link active text-light" aria-current="page"
-                                    href="views/dashboard.php">Dashboard</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" href="views/manage-account.php">Manage Account</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active text-light" href="views/manage-books.php">Manage Books</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+                </nav>
+            </div>
             <!-- end of navbar -->
 
             <!-- hero section -->
@@ -110,8 +112,8 @@
             <!-- end of hero section -->
 
             <!-- footer -->
-            <footer class="bg-primary text-light d-flex justify-content-center aling-items-center pt-2">
-                <p class="fs-5">Copyright @ 2024 Atio Wahyudi Saputra</p>
+            <footer class="bg-white text-light d-flex justify-content-center aling-items-center pt-2">
+                <p class="fs-5 text-dark">Copyright @ 2024 Atio Wahyudi Saputra</p>
             </footer>
             <!-- end of footer -->
         </div>
