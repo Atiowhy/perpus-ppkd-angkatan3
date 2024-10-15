@@ -22,10 +22,13 @@ if (isset($_POST['edit'])) {
     $pengarang = $_POST['pengarang'];
     $penerbit = $_POST['penerbit'];
     $tahunTerbit = $_POST['tahun_terbit'];
+    $id_kategori = $_POST['id_kategori'];
 
-    $queryEditData = mysqli_query($connection, "UPDATE buku SET judul_buku='$judulBuku', pengarang='$pengarang', penerbit='$penerbit', tahun_terbit='$tahunTerbit' WHERE id='$id'");
+    $queryEditData = mysqli_query($connection, "UPDATE buku SET judul_buku='$judulBuku', pengarang='$pengarang', penerbit='$penerbit', tahun_terbit='$tahunTerbit', id_kategori='$id_kategori' WHERE id='$id'");
     header('location: ?pg=book');
 }
+
+$queryKategori = mysqli_query($connection,  "SELECT * FROM categories");
 
 ?>
 <div class="container">
@@ -37,6 +40,18 @@ if (isset($_POST['edit'])) {
                         <?php echo isset($_GET['edit']) ? 'Edit' : 'Tambah' ?> Buku
                     </legend>
                     <form method="post">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Kategori</label>
+                            <select name="id_kategori" class="form-control">
+                                <option value="">Pilih Kategori</option>
+                                <?php while ($rowkategori = mysqli_fetch_assoc($queryKategori)) : ?>
+                                    <option <?php echo isset($_GET['edit']) ? ($rowkategori['id'] == $dataEdit['id_kategori'] ? 'selected' : '
+                                    ') : '' ?> value="<?php echo $rowkategori['id'] ?>">
+                                        <?php echo $rowkategori['categories_name'] ?>
+                                    </option>
+                                <?php endwhile ?>
+                            </select>
+                        </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Judul Buku</label>
                             <input type="text" class="form-control" name="judul_buku" value="<?php echo isset($_GET['edit']) ? $dataEdit['judul_buku'] : '' ?>">

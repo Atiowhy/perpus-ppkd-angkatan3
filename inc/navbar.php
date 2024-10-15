@@ -21,6 +21,12 @@
                     <li class="nav-item">
                         <a class="nav-link active text-dark" href="?pg=book">Manage Books</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-dark" href="?pg=categories">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-dark" href="?pg=level">Level</a>
+                    </li>
                 </ul>
             </div>
         </div>

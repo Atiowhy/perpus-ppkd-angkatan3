@@ -1,13 +1,14 @@
 <?php
-$books = mysqli_query($connection, "SELECT * FROM buku ORDER BY id DESC");
+$books = mysqli_query($connection, "SELECT categories.categories_name, buku.* FROM buku LEFT JOIN categories ON categories.id = buku.id_kategori ORDER BY id DESC");
 
 if (isset($_POST['tambah'])) {
+    $kategori = $_POST['id_kategori'];
     $judulBuku = $_POST['judul_buku'];
     $pengarang = $_POST['pengarang'];
     $penerbit = $_POST['penerbit'];
     $tahunTerbit = $_POST['tahun_terbit'];
 
-    $queryTambah = mysqli_query($connection, "INSERT INTO buku (judul_buku, pengarang, penerbit, tahun_terbit) VALUES('$judulBuku', '$pengarang', '$penerbit', '$tahunTerbit')");
+    $queryTambah = mysqli_query($connection, "INSERT INTO buku (id_kategori, judul_buku, pengarang, penerbit, tahun_terbit) VALUES('$kategori','$judulBuku', '$pengarang', '$penerbit', '$tahunTerbit')");
 
     if (!$queryTambah) {
         echo "Gagal menambahkan data";
@@ -15,6 +16,10 @@ if (isset($_POST['tambah'])) {
         header('location: ?pg=book');
     }
 }
+
+$queryKategori = mysqli_query($connection,  "SELECT * FROM categories");
+
+
 
 ?>
 
@@ -31,6 +36,7 @@ if (isset($_POST['tambah'])) {
             <thead>
                 <tr>
                     <th scope="col">No</th>
+                    <th scope="col">Nama kategori</th>
                     <th scope="col">Judul Buku</th>
                     <th scope="col">Pengarang</th>
                     <th scope="col">Penerbit</th>
@@ -45,6 +51,7 @@ if (isset($_POST['tambah'])) {
                 ?>
                     <tr>
                         <th scope="row"><?php echo $no++ ?></th>
+                        <td><?php echo $rowBuku['categories_name']; ?></td>
                         <td><?php echo $rowBuku['judul_buku'] ?></td>
                         <td><?php echo $rowBuku['pengarang'] ?></td>
                         <td><?php echo $rowBuku['penerbit'] ?></td>
@@ -72,8 +79,19 @@ if (isset($_POST['tambah'])) {
             <div class="modal-body">
                 <form method="post">
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Judul Buku</label>
+                        <label for="exampleInputEmail1" class="form-label">Nama Buku</label>
                         <input type="text" class="form-control" name="judul_buku" value="">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Kategori Buku</label>
+                        <select name="id_kategori" class="form-control" id="">
+                            <option value="">Pilih Kategori</option>
+                            <?php while ($rowkategori = mysqli_fetch_assoc($queryKategori)) : ?>
+                                <option value="<?php echo $rowkategori['id'] ?>">
+                                    <?php echo $rowkategori['categories_name'] ?>
+                                </option>
+                            <?php endwhile ?>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Pengarang</label>
@@ -85,7 +103,7 @@ if (isset($_POST['tambah'])) {
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Tahun Terbit</label>
-                        <input type="text" class="form-control" name="tahun_terbit" value="">
+                        <input type="date" class="form-control" name="tahun_terbit" value="">
                     </div>
                     <button type="submit" name="<?php echo isset($_GET['edit']) ? 'edit' : 'tambah' ?>" class="btn btn-primary"><?php echo isset($_GET['edit']) ? 'edit' : 'tambah' ?></button>
                 </form>
