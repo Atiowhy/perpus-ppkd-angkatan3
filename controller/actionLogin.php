@@ -10,7 +10,7 @@ $queryLogin = mysqli_query($connection, "SELECT * FROM user WHERE email='$email'
 if (mysqli_num_rows($queryLogin) > 0) {
     $rowUser = mysqli_fetch_assoc($queryLogin); //mysqli_fetch_assoc adalah sebuah fungsi dalam PHP yang digunakan untuk mengambil data dari database MySQL
     if ($rowUser['password'] == $password) {
-        $_SESSION['email'] = $rowUser['email']; //mengirimkan email user
+        $_SESSION['NAMA'] = $rowUser['nama']; //mengirimkan email user
         $_SESSION['ID'] = $rowUser['id']; //mengirimkan id user
         header("location: ../views/dashboard.php?login=berhasil");
     } else {

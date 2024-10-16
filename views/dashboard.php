@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (empty($_SESSION['NAMA'])) {
+    header('location: login.php?access=failed');
+}
+
 include '../koneksi.php';
 
 ?>
