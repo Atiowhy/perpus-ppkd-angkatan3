@@ -28,7 +28,7 @@ if (isset($_POST['edit'])) {
     header('location: ?pg=book');
 }
 
-$queryKategori = mysqli_query($connection,  "SELECT * FROM categories");
+$queryBuku = mysqli_query($connection,  "SELECT * FROM buku");
 
 ?>
 <div class="container">
@@ -48,6 +48,15 @@ $queryKategori = mysqli_query($connection,  "SELECT * FROM categories");
                             <div class="mb-3">
                                 <label for="" class="form-label">Tanggal Peminjaman</label>
                                 <input type="date" class="form-control" name="tgl_peminjaman" value="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Nama Buku</label>
+                                <select name="" id="id_buku" class="form-control">
+                                    <option value="">Pilih Buku</option>
+                                    <?php while ($rowBuku = mysqli_fetch_assoc($queryBuku)) : ?>
+                                        <option value="<?php echo $rowBuku['id'] ?>"><?php echo $rowBuku['judul_buku'] ?></option>
+                                    <?php endwhile ?>
+                                </select>
                             </div>
                         </div>
                         <div class="col-sm-4">
@@ -71,7 +80,7 @@ $queryKategori = mysqli_query($connection,  "SELECT * FROM categories");
                             Tambah Row
                         </button>
                     </div>
-                    <table class="table table-bordered">
+                    <table id="table" class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>Nama Buku</th>

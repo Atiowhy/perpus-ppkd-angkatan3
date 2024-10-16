@@ -31,6 +31,9 @@
                         <li class="nav-item">
                             <a class="nav-link active text-dark" href="?pg=book">Buku</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link active text-dark" href="?pg=anggota">Anggota</a>
+                        </li>
                     </ul>
                     <div class="btn-action">
                         <a href="../keluar.php" class="btn btn-danger">Keluar</a>
