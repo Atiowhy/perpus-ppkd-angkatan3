@@ -33,7 +33,6 @@ $queryKategori = mysqli_query($connection,  "SELECT * FROM categories");
 ?>
 <div class="container">
     <div class="row">
-
         <div class="card p-5 mt-5 mx-5 shadow-lg">
             <fieldset class="border border-black border-2 p-3 shadow">
                 <legend class="float-none w-auto px-3">
@@ -69,6 +68,5 @@ $queryKategori = mysqli_query($connection,  "SELECT * FROM categories");
                 </form>
             </fieldset>
         </div>
-
     </div>
 </div>
