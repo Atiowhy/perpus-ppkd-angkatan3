@@ -65,6 +65,23 @@ $queryKategori = mysqli_query($connection,  "SELECT * FROM categories");
                             </div>
                         </div>
                     </div>
+
+                    <div class="btn-cta d-flex justify-content-end mb-3">
+                        <button type="button" id="add-row" class="btn btn-primary shadow">
+                            Tambah Row
+                        </button>
+                    </div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Nama Buku</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-row">
+
+                        </tbody>
+                    </table>
                 </form>
             </fieldset>
         </div>
