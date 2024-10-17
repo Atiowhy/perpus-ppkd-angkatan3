@@ -52,7 +52,7 @@ $queryAnggota = mysqli_query($connection,  "SELECT * FROM anggota");
             <div class="card p-5 mt-5 mx-5 shadow-lg">
                 <fieldset class="border border-black border-2 p-3 shadow">
                     <legend class="float-none w-auto px-3">
-                        <?php echo isset($_GET['edit']) ? 'Edit' : 'Tambah' ?> Buku
+                        <?php echo isset($_GET['edit']) ? 'Edit' : 'Tambah' ?> Anggota
                     </legend>
                     <form method="post">
                         <div class="mb-3">

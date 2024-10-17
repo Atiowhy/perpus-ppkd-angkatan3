@@ -52,6 +52,7 @@ $queryKategori = mysqli_query($connection,  "SELECT * FROM categories");
                     <tr>
                         <th scope="row"><?php echo $no++ ?></th>
                         <td><?php echo $rowPinjam['nama_anggota']; ?></td>
+                        <td><?php echo $rowPinjam['no_peminjaman']; ?></td>
                         <td><?php echo $rowPinjam['tgl_peminjaman'] ?></td>
                         <td><?php echo $rowPinjam['tgl_pengembalian'] ?></td>
                         <td><?php echo $rowPinjam['status'] ?></td>
@@ -59,7 +60,7 @@ $queryKategori = mysqli_query($connection,  "SELECT * FROM categories");
                         <td>
                             <div class="btn-setting  gap-3">
                                 <a href="?pg=tambah-peminjaman&hapus=<?php echo $rowPinjam['id'] ?>" class="btn btn-danger">Hapus</a>
-                                <a href="?pg=tambah-peminjaman&edit=<?php echo $rowPinjam['id'] ?>" class="btn btn-warning">Edit</a>
+                                <a href="?pg=tambah-peminjaman&detail=<?php echo $rowPinjam['id'] ?>" class="btn btn-warning">Detail</a>
                             </div>
                         </td>
                     </tr>
